@@ -1,6 +1,8 @@
 package com.be.iam.controller.http;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,5 +20,10 @@ public class PrivilegeController {
     @GetMapping
     public String test() {
         return privilegeAppService.test();
+    }
+
+    @PostMapping("/create")
+    public String create(@RequestBody String privilege) {
+        return privilegeAppService.create(privilege);
     }
 }
